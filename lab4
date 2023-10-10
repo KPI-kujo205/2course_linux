@@ -1,0 +1,7 @@
+
+select all even lines
+nl city.txt | awk '{odd=$1%2; if(!odd) print $2" "$3" "$4}'
+
+delete all files depth -2
+find /шлях/до/папки/abc -mindepth 2 -type f -exec rm {} \;
+

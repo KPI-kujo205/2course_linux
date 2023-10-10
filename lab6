@@ -1,0 +1,23 @@
+1) sudo useradd -m <username>  -add user with home directory
+2) sudo userdel -r <username>  -delete a user and their home dir 
+3) sudo useradd -r <username>  -add system user
+4) sudo passwd <username> - change password
+5) sudo usermod -aG admins <username> - add user to admins group
+
+
+
+
+lab commands
+1) sudo useradd -m <username>  -add user with home directory
+2) sudo passwd <username> - change password
+3) sudo usermod -c <comment> <username> - change info (comment)
+4) sudo usermod -d <new_homedir_name> -m <username> - move home directory of 3rd user to /home/user
+5) su <username> - change to other user
+6) sudo chsh -s /bin/sh <username> - change shell to /bin/sh 
+7) sudo groupadd <groupname> - create a group
+   sudo usermod -aG <groupname> <username>
+   cat /etc/group - see all available groups
+8) chown <user>:<group> <file|folder>
+9) chmod [u=rwx | o=rwx | g=rwx] filename|foldername 
+10)chmod u=r,o=,g=w testdir
+

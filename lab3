@@ -1,0 +1,4 @@
+1) grep -vE 'Vienna|Spain' city.txt | wc -l > newfile.txt
+2) uniq -D city.txt | sort | uniq >> newfile.txt
+3) ls > /dev/tty 2> error.txt
+4) sudo grep -e '/bin/bash' pass.txt | cut -d: -f1 | nl
