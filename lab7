@@ -1,0 +1,20 @@
+#!/bin/sh
+#Вивести список встановлених пакетів
+dpkg -l
+
+#Оновити локальну базу пакетів
+sudo apt update
+
+#Знайти у базі пакетів Midnight Commander (mc)та встановитийого
+apt search mc 
+sudo apt install mc
+
+#Пересвідчитися, що mcвстановлено, та спробувати його запустити. Вийти з mc
+dpkg -l | grep 'mc'
+mc --version
+mc
+ldd `{which mc}`
+
+
+#delete mc, to not to litter debian
+sudo apt purge mc

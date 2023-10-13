@@ -1,0 +1,7 @@
+Package: rm-white
+Version: 0.0.1
+Maintainer: example <kuc8301@gmail.com>
+Depends:
+Architecture: amd64
+Homepage: http://rm-white.com
+Description: A program which accepts text from stdin and prints it to stdout
