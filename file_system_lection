@@ -1,0 +1,50 @@
+# LINUX SYSTEM FILE STRUCTURE
+
+/bin /usr/bin - executables, files necessary to boot up the system
+/sbin /usr/sbin  - files, necessary for admin user (super-user bin files)
+/dev - devices 
+/etc - (edeitable text configuration) all system settings
+/lib - libraries, necessary for files located in /bin /sbin
+
+/root - home directory of a superuser, home directories of all the other users
+ are locateed in /home/.
+
+/usr - (UNIX SYSTEM RESOURCES) contains all the other resources, looks like 
+root directory, so, basically  it contains all the res, which won't be 
+modified (media, docs, etc). Takes up the most space 
+
+/var - contains variable files, which are changed during the work of the
+system. e.g. /var/log - contains logs files of errors
+
+/home - home directory
+/media - entry points of portable devices connected to the laptop
+
+/mnt - entry points for connecting SSD , hard drives, etc
+/opt - optional packages for apps (it should have contained all the
+additional files, but for historical reasons they're usually are in /usr)
+ 
+/srv -  data for public server services
+/tmp - stores temporary files, which would be erased after the shutdown
+/proc /sys - virtual file systems are mounted here 
+/boot - files of boot manager, kernel is stored here
+
+# utils
+# file location commands 
+# find, locate, whereis, which, type 
+- which - find where the file is located
+- whereis - like which, but can also find configurational files
+- find - finds files 
+- locate - finds files in a db of files, works faster
+- type - what the file is, where is it located
+- updatebd - renews a db, used ny locate command
+
+#file managment commands
+- tar - Type ARchive, archives files
+- gzip - file compression
+- dd - convert and copy a file
+
+#practive
+sudo tar -cvf etc.tar /etc - archive fie
+gzip services.gz - compress file
+gunzip services.gz - unarchive file
+
