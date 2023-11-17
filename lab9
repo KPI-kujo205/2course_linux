@@ -35,6 +35,10 @@ sudo lvs
 sudo mkfs.ext4 /dev/mygroup/c1
 
 
-#mount a file system
-sudo mount /dev/mygroup/c1 /mnt/my_mount_point
+#mount a file system in a directory
+sudo mkdir /mnt/c1 
 
+sudo mount /dev/mygroup/c1 /mnt/c1
+
+#list all the mounted fs
+sudo mount -v
