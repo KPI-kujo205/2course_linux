@@ -1,0 +1,40 @@
+#!/bin/sh
+#Створити файли  вказаного в(A)розмірута представити їх у вигляді дисків за допомогою loop-пристроїв
+#if - input file, of - output file, bs bytes
+dd if=/dev/zero of=file1 bs=100M count=1
+dd if=/dev/zero of=file2 bs=100M count=1
+dd if=/dev/zero of=file3 bs=100M count=1
+
+sudo losetup -d /dev/loop100
+sudo losetup -d /dev/loop101
+sudo losetup -d /dev/loop102
+
+sudo losetup /dev/loop100 file1
+sudo losetup /dev/loop101 file2
+sudo losetup /dev/loop102 file3
+
+# list all devices
+lsblk
+
+#Створити групу томів (volumegroup)з усіх “дисків”, створених у попередньому пункті.
+sudo vgcreate mygroup /dev/loop100 /dev/loop101 /dev/loop102
+
+#Check newly created group
+sudo vgs
+
+#Створити логічні томи (logicalvolume) з назвами та розміром, що вказані в(B)
+sudo lvcreate -n c1 -L 100M mygroup
+sudo lvcreate -n c2 -L 100M mygroup
+sudo lvcreate -n c3 -L 100M mygroup
+sudo lvcreate -n c4 -L 100M mygroup
+
+#list logical volumes
+sudo lvs
+
+#Створити файлові системи на логічних томах у відповідності з (C)
+sudo mkfs.ext4 /dev/mygroup/c1
+
+
+#mount a file system
+sudo mount /dev/mygroup/c1 /mnt/my_mount_point
+
